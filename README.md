@@ -1,6 +1,6 @@
 # Sistema de Gestão de Participantes para Eventos
 
-## 📖 Sobre o Projeto
+##  Sobre o Projeto
 
 Este projeto foi desenvolvido em Python com o objetivo de auxiliar na gestão de participantes de eventos.
 
@@ -10,7 +10,7 @@ Este é um dos meus primeiros projetos práticos desenvolvidos sem seguir um tut
 
 ---
 
-## 🚀 Funcionalidades
+##  Funcionalidades
 
 * Cadastro de participantes
 * Listagem de participantes cadastrados
@@ -21,7 +21,7 @@ Este é um dos meus primeiros projetos práticos desenvolvidos sem seguir um tut
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 * Python 3
 * JSON
@@ -30,7 +30,7 @@ Este é um dos meus primeiros projetos práticos desenvolvidos sem seguir um tut
 
 ---
 
-## 📂 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```text
 gestao-eventos/
@@ -43,7 +43,7 @@ gestao-eventos/
 
 ---
 
-## ▶️ Como Executar
+##  Como Executar
 
 1. Clone este repositório:
 
@@ -65,7 +65,7 @@ python main.py
 
 ---
 
-## 📚 Conceitos Praticados
+##  Conceitos Praticados
 
 Durante o desenvolvimento deste projeto foram utilizados:
 
@@ -80,7 +80,7 @@ Durante o desenvolvimento deste projeto foram utilizados:
 
 ---
 
-## 🎯 Próximas Melhorias
+##  Próximas Melhorias
 
 * Validação completa de CPF
 * Impedir CPFs duplicados
@@ -91,7 +91,7 @@ Durante o desenvolvimento deste projeto foram utilizados:
 
 ---
 
-## 👨‍💻 Autor
+##  Autor
 
 Murilo Niro
 
