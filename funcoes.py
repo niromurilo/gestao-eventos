@@ -24,17 +24,20 @@ def cadastrar_usuario(participantes):
 
 def remover_usuario(participantes):
     cpf_remover = input("Digite o cpf do usuario que deseja remover: ")
+    cpf_remover = re.sub(r'\D', '', cpf_remover)
+    if len(cpf_remover) != 11:
+        print("CPF deve ter 11 dígitos!")
     encontrado = False
     for participante in participantes:
         if participante["cpf"] == cpf_remover:
             encontrado = True
             print("-" * 30)
-            decisao = input(f"""Usuario encontrado: Nome: {participante['nome']} - CPF: {participante['cpf']}
+            decisao = input(f"""Usuario encontrado: Nome: {participante['nome']} - CPF: {formatar_cpf(participante["cpf"])}
 Deseja remover esse usuario? (s/n)""")
             if decisao == "s":
                 participantes.remove(participante)
                 print("-" * 30)
-                print(f"{participante['nome']} com cpf {cpf_remover} removido com sucesso!")
+                print(f"{participante['nome']} com cpf {formatar_cpf(cpf_remover)} removido com sucesso!")
                 print("-" * 30)
                 salvar_arquivos(participantes)
             elif decisao == "n":
@@ -60,7 +63,7 @@ def listar_usuarios(participantes):
         print("-" * 30)
         print("Lista de usuarios cadastrados:")
         for usuario in participantes:
-            print(f"Nome: {usuario['nome']} - CPF: {usuario['cpf']}")
+            print(f"Nome: {usuario['nome']} - CPF: {formatar_cpf(usuario['cpf'])}")
         print("-" * 30)
 
 def carregar_dados():
@@ -73,4 +76,6 @@ def carregar_dados():
 def salvar_arquivos(participantes):
     with open("participantes.json", "w") as arquivo:
         json.dump(participantes, arquivo, indent=4)
-        
+
+def formatar_cpf(cpf):
+    return f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
