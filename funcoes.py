@@ -1,29 +1,25 @@
 #importando json
 import json
+import re
 
 #criando funções
 def cadastrar_usuario(participantes):
     participante = {}
     nome = input("Digite o nome do usuario: ")
     cpf = input("Digite o cpf do usuario: ")
-    cpf = cpf.strip(" ", "-", ".")
-    if nome and cpf == "":
+    cpf = re.sub(r'\D', '', cpf)
+    if nome == "" or cpf == "":
         print("Nome ou CPF inválido!")
-    elif len(cpf) < 11 and len(cpf) > 11:
-        print("CPF de tamanho inválido!")
+    elif len(cpf) != 11:
+        print("CPF deve ter 11 dígitos!")
     encontrado = False
-    for participante in participantes:
-        if participante["cpf"] == cpf:
-            print("CPF já existente!")
+    encontrado = any(p["cpf"] == cpf for p in participantes)
+    if encontrado:
+        print("CPF já existente!")
     else:
-        participante["nome"] = nome
-        participante["cpf"] = cpf
-        participantes.append(participante)
-        print("-" * 30)
-        print(f"Usuario {nome} cadastrado com sucesso!")
-        print(f"{participante}")
-        print("-" * 30)
-        salvar_arquivos(participantes)
+        participantes.append({"nome": nome, "cpf": cpf})
+        salvar_arquivos()
+        print(f"Usuário {nome} cadastrado com sucesso!")
     
 
 def remover_usuario(participantes):
@@ -68,9 +64,11 @@ def listar_usuarios(participantes):
         print("-" * 30)
 
 def carregar_dados():
-    with open("participantes.json", "r") as arquivo:
-        participantes = json.load(arquivo)
-        return participantes
+    try:
+        with open("participantes.json", "r") as arquivo:
+            return json.load(arquivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
 
 def salvar_arquivos(participantes):
     with open("participantes.json", "w") as arquivo:
