@@ -1,18 +1,10 @@
 [
     {
+        "nome": "Murilo",
+        "cpf": "12345678910"
+    },
+    {
         "nome": "niro",
-        "cpf": "100"
-    },
-    {
-        "nome": "ana gata",
-        "cpf": "190"
-    },
-    {
-        "nome": "lian fuboca",
-        "cpf": "120"
-    },
-    {
-        "nome": "maria fernanda fuboca de lian",
-        "cpf": "130"
+        "cpf": "11011111213"
     }
 ]

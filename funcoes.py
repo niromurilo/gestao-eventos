@@ -18,7 +18,7 @@ def cadastrar_usuario(participantes):
         print("CPF já existente!")
     else:
         participantes.append({"nome": nome, "cpf": cpf})
-        salvar_arquivos()
+        salvar_arquivos(participantes)
         print(f"Usuário {nome} cadastrado com sucesso!")
     
 
